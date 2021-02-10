@@ -7,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Microsoft.EntityFrameworkCore;
+using CadastroIdealAPI.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +28,7 @@ namespace CadastroIdealAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddDbContext<CadastroIdealContext>(x => x.UseSqlServer("Data Source=HOTBLOODED\\MSSQLSERVER2;Initial Catalog=CadastroIdealDB;Integrated Security=True"));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
