@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CadastroIdealAPI.Model;
+using System.Net;
 
 namespace CadastroIdealAPI.Controllers
 {
@@ -42,7 +43,6 @@ namespace CadastroIdealAPI.Controllers
         }
 
         // PUT: api/Pessoas/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPessoa(int id, Pessoa pessoa)
         {
@@ -73,13 +73,11 @@ namespace CadastroIdealAPI.Controllers
         }
 
         // POST: api/Pessoas
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Pessoa>> PostPessoa(Pessoa pessoa)
         {
             _context.Pessoas.Add(pessoa);
             await _context.SaveChangesAsync();
-
             return CreatedAtAction(nameof(GetPessoa), new { id = pessoa.Id }, pessoa);
         }
 

@@ -12,7 +12,7 @@ CREATE TABLE Pessoas(
 	ID INT IDENTITY PRIMARY KEY,
 	Nome VARCHAR(30),
 	Sobrenome VARCHAR(30),
-	Telefone CHAR(11)
+	Telefone CHAR(12)
 )
 go
 
@@ -21,7 +21,7 @@ go
 CREATE PROCEDURE PessoaInsert(
 	@Nome VARCHAR(30),
 	@Sobrenome VARCHAR(30),
-	@Telefone CHAR(11)
+	@Telefone CHAR(12)
 )
 as
 	INSERT INTO Pessoas (Nome, Sobrenome, Telefone)
@@ -40,7 +40,7 @@ CREATE PROCEDURE PessoaUpdate(
 	@ID INT,
 	@Nome VARCHAR(30),
 	@Sobrenome VARCHAR(30),
-	@Telefone CHAR(11)
+	@Telefone CHAR(12)
 )
 as
 	UPDATE Pessoas
@@ -72,6 +72,7 @@ CREATE PROCEDURE PessoaSelectAll
 as
 	SELECT *
 		FROM Pessoas
+		ORDER BY Sobrenome, Nome
 go
 
 exec PessoaSelectAll
