@@ -20,6 +20,7 @@ namespace CadastroIdealAPI.Controllers
 
         // GET: api/Pessoas
         [HttpGet]
+        //[Route("/")]
         public async Task<ActionResult<IEnumerable<Pessoa>>> GetPessoas()
         {
             return await _context.Pessoas.ToListAsync();

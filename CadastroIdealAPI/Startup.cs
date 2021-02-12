@@ -21,7 +21,8 @@ namespace CadastroIdealAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<CadastroIdealContext>(x => x.UseSqlServer("Data Source=HOTBLOODED\\MSSQLSERVER2;Initial Catalog=CadastroIdealDB;Integrated Security=True"));
+            //services.AddDbContext<CadastroIdealContext>(x => x.UseSqlServer("Data Source=HOTBLOODED\\MSSQLSERVER2;Initial Catalog=CadastroIdealDB;Integrated Security=True"));
+            services.AddDbContext<CadastroIdealContext>(x => x.UseSqlServer("Server=tcp:cadastroidealapidbserver.database.windows.net,1433;Initial Catalog=CadastroIdealAPI_db;Persist Security Info=False;User ID=idealadmin;Password=Febre1202;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
